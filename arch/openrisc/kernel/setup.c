@@ -39,6 +39,7 @@
 #include <linux/memblock.h>
 #include <linux/device.h>
 #include <linux/of_platform.h>
+#include <linux/screen_info.h>
 
 #include <asm/sections.h>
 #include <asm/segment.h>
@@ -105,6 +106,10 @@ static unsigned long __init setup_memory(void)
 }
 
 struct cpuinfo_or1k cpuinfo_or1k[NR_CPUS];
+
+#ifdef CONFIG_VGA_CONSOLE
+struct screen_info screen_info;
+#endif
 
 static void print_cpuinfo(void)
 {
